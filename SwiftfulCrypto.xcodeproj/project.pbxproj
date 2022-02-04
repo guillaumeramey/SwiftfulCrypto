@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4591A8627AD647900DDCABA /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4591A8527AD647900DDCABA /* Coin.swift */; };
 		A4D208C627AAB93500621470 /* SwiftfulCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D208C527AAB93500621470 /* SwiftfulCryptoApp.swift */; };
 		A4D208CA27AAB93700621470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D208C927AAB93700621470 /* Assets.xcassets */; };
 		A4D208CD27AAB93700621470 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D208CC27AAB93700621470 /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4591A8527AD647900DDCABA /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		A4D208C227AAB93500621470 /* Crypto Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D208C527AAB93500621470 /* SwiftfulCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoApp.swift; sourceTree = "<group>"; };
 		A4D208C927AAB93700621470 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4591A8727AD648D00DDCABA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4591A8527AD647900DDCABA /* Coin.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A4D208B927AAB93500621470 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 			children = (
 				A4D208C527AAB93500621470 /* SwiftfulCryptoApp.swift */,
 				A4D208D327AC029300621470 /* Extensions */,
+				A4591A8727AD648D00DDCABA /* Models */,
 				A4FB195927AC25F80086BD39 /* Core */,
 				A4D208C927AAB93700621470 /* Assets.xcassets */,
 				A4D208CB27AAB93700621470 /* Preview Content */,
@@ -206,6 +217,7 @@
 				A4D208C627AAB93500621470 /* SwiftfulCryptoApp.swift in Sources */,
 				A4FB196227AC27C80086BD39 /* CircleButtonView.swift in Sources */,
 				A4D208D527AC02AC00621470 /* Color.swift in Sources */,
+				A4591A8627AD647900DDCABA /* Coin.swift in Sources */,
 				A4FB196427AC2F0C0086BD39 /* CircleButtonAnimationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
