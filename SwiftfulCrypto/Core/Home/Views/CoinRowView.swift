@@ -12,7 +12,7 @@ struct CoinRowView: View {
   let showHoldingsColumn: Bool
 
   var body: some View {
-    HStack {
+    HStack(spacing: 0) {
       leftColumn
 
       Spacer()
@@ -47,6 +47,7 @@ extension CoinRowView {
         .frame(minWidth: 30)
       Circle()
         .frame(width: 30, height: 30)
+        .padding(.horizontal, 5)
       Text(coin.symbol.uppercased())
         .font(.headline)
         .foregroundColor(Color.theme.accent)
@@ -75,6 +76,6 @@ extension CoinRowView {
           Color.theme.green : Color.theme.red
         )
     }
-    .frame(width: UIScreen.main.bounds.width / 3, alignment: .trailing)
+    .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
   }
 }
