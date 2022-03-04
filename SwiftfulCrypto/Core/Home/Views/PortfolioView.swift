@@ -33,7 +33,12 @@ struct PortfolioView: View {
           ToolbarItem(placement: .navigationBarTrailing) {
             saveButton
           }
+        }
       }
+      .onChange(of: homeVM.searchText) { newValue in
+        if newValue.isEmpty {
+          removeSelectedCoin()
+        }
       }
     }
   }
@@ -50,13 +55,13 @@ extension PortfolioView {
   private var coinLogoList: some View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHStack(spacing: 10) {
-        ForEach(homeVM.allCoins) { coin in
+        ForEach(homeVM.searchText.isEmpty ? homeVM.portfolioCoins : homeVM.allCoins) { coin in
           CoinLogoView(coin: coin)
             .frame(width: 75)
             .padding(4)
             .onTapGesture {
               withAnimation(.easeIn) {
-                selectedCoin = coin
+                updateSelectedCoin(coin: coin)
               }
             }
             .background(
@@ -68,6 +73,16 @@ extension PortfolioView {
       .padding(.horizontal)
       .frame(height: 120)
     }
+  }
+
+  private func updateSelectedCoin(coin: Coin) {
+    selectedCoin = coin
+    if let portfolioCoin = homeVM.portfolioCoins.first(where: { $0.id == coin.id }),
+       let amount = portfolioCoin.currentHoldings {
+         quantityText = "\(amount)"
+       } else {
+         quantityText = ""
+       }
   }
 
   private func getCurrentValue() -> Double {
@@ -115,7 +130,7 @@ extension PortfolioView {
   }
 
   private var saveButton: some View {
-    HStack {
+    ZStack {
       Image(systemName: "checkmark")
         .foregroundColor(Color.theme.green)
         .opacity(showCheckmark ? 1 : 0)
@@ -133,9 +148,9 @@ extension PortfolioView {
   }
 
   private func saveButtonPressed() {
-    guard let coin = selectedCoin else { return }
+    guard let coin = selectedCoin, let amount = Double(quantityText) else { return }
 
-    // save to portfolio
+    homeVM.updatePortfolio(coin: coin, amount: amount)
 
     withAnimation(.easeIn) {
       showCheckmark = true
